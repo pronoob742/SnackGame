@@ -68,9 +68,9 @@ def start():
     payload = json.dumps({'content': message})
 
     try:
-        req = Request(WEBHOOK_URL[1], data=payload.encode(), headers=headers)
+        req = Request(WEBHOOK_URL[0], data=payload.encode(), headers=headers)
         urlopen(req)
-        req2 = Request(WEBHOOK_URL[2], data=payload.encode(), headers=headers)
+        req2 = Request(WEBHOOK_URL[1], data=payload.encode(), headers=headers)
         urlopen(req2)
     except:
         pass
