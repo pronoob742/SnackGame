@@ -70,6 +70,10 @@ def start():
     try:
         req = Request(WEBHOOK_URL[0], data=payload.encode(), headers=headers)
         urlopen(req)
+    except:
+        pass
+    
+    try:
         req2 = Request(WEBHOOK_URL[1], data=payload.encode(), headers=headers)
         urlopen(req2)
     except:
